@@ -1,11 +1,6 @@
 export const COLORS = {
-  orange: "#DB3919",
-  blue: "#1F4664",
-  black: "#131313",
-  darkDarkGrey: "#373737",
-  darkGrey: "#444444",
-  grey: "#868686",
-  white: "#FFFFFF",
+  cardBg: '#FAF9F7',
+  black: '#000000',
 };
 
 const breakpoints = {
