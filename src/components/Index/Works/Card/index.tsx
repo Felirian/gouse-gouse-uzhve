@@ -22,8 +22,9 @@ const Index = ({picture}) => {
 };
 
 const CardWr = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
   gap: 15px;
 `
 
@@ -37,7 +38,8 @@ const ImgWr = styled.div`
   align-items: center;
   align-self: stretch;
   
-  background-color: ${COLORS.black};  
+  background-color: ${COLORS.black};
+  border-radius: 16px;
 `;
 
 const Img = styled.img`
@@ -49,7 +51,9 @@ const Img = styled.img`
 const Desc = styled.div`
   background-color: ${COLORS.cardBg};
   padding: 24px;
-  border-radius: 8px;
+  border-radius: 16px;
+  
+  min-height: 228px;
   
   display: flex;
   flex-direction: column;
