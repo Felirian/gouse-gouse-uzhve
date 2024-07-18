@@ -15,7 +15,6 @@ const Index = () => {
         ))}
       </PictureGrid>
 
-
     </WorksWr>
   );
 };
@@ -29,6 +28,8 @@ const WorksWr = styled.section`
 const PictureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
   width: 100%;
 `
 

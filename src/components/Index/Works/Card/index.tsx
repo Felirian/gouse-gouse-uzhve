@@ -26,29 +26,31 @@ const CardWr = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr;
   gap: 15px;
-  grid-column: span ${({ imgCount }) => imgCount  }
+  grid-column: span ${({ imgCount }) => imgCount  };
+  
+  max-height: 700px;
 `
 
-const ImgWr = styled.div`
-  display: flex;
+const ImgWr = styled.div`  
   width: 100%;
   height: 100%;
+  max-height: 455px;
   padding: 20px;
   
+  display: flex;
   justify-content: center;
   align-items: center;
   align-self: stretch;
+  gap: 70px;
   
-  background-color: ${COLORS.black};
+  background-color: ${COLORS.blackOpacity};
   border-radius: 16px;
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
-  max-height: 100px;
-  object-fit: contain;
-  
+  object-fit: contain;  
 `;
 
 const Desc = styled.div`
