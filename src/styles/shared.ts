@@ -1,4 +1,4 @@
-import { BREAKPOINTS, COLORS } from "@/styles/variables";
+import { BREAKPOINTS } from "@/styles/variables";
 import styled from "styled-components";
 
 export const StyledContentWr = styled.div`

@@ -100,7 +100,7 @@ const StyledHeaderContentWr = styled(StyledContentWr)`
   align-items: center;
 `;
 
-const StyledLogoLink = styled.a<{ burgerisopen: string }>`
+const StyledLogoLink = styled.a<{ burgerisopen?: string }>`
   width: 123px;
   height: 41px;
   svg {

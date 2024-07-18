@@ -1,6 +1,6 @@
 import Header from "@/components/Index/Header";
 import PreviewBlock from "@/components/Index/PreviewBlock";
-import AboutBlock from "@/components/Index/AboutBlock";
+import AboutBlock from "@/components/Index/AboutBlock/AboutBlock";
 import Works from "@/components/Index/Works";
 import Footer from "@/components/Index/Footer";
 
