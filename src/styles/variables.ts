@@ -1,6 +1,7 @@
 export const COLORS = {
-  cardBg: '#FAF9F7',
-  black: '#000000',
+  cardBg: "#FAF9F7",
+  black: "#000000",
+  white: "#ffffff",
 };
 
 const breakpoints = {

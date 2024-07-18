@@ -3,7 +3,7 @@ import { BREAKPOINTS } from "@/styles/variables";
 
 export const H1Style = css`
   /* Heading 1 */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 45px;
   font-style: normal;
   font-weight: 275;
@@ -21,14 +21,14 @@ export const H1Style = css`
 
 export const H2Style = css`
   /* Heading 2 */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
   font-style: normal;
   font-weight: 300;
   line-height: 105.4%; /* 37.944px */
   letter-spacing: -0.36px;
   @media ${BREAKPOINTS.laptop} {
-    font-size: 2.50vw;
+    font-size: 2.5vw;
     letter-spacing: -0.05vw;
   }
   @media ${BREAKPOINTS.mobile} {
@@ -39,7 +39,7 @@ export const H2Style = css`
 
 export const PStyle = css`
   /* Text 1 */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
@@ -50,14 +50,14 @@ export const PStyle = css`
     letter-spacing: -0.03vw;
   }
   @media ${BREAKPOINTS.mobile} {
-    font-size: 4.10vw;
+    font-size: 4.1vw;
     letter-spacing: -0.06vw;
   }
 `;
 
 export const ButtonTextStyle = css`
   /* buttons */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
@@ -75,16 +75,16 @@ export const ButtonTextStyle = css`
 
 export const CaptionStyle = css`
   /* подпись форма */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 300;
   line-height: 110%; /* 14.3px */
   @media ${BREAKPOINTS.laptop} {
-    font-size: 0.90vw;
+    font-size: 0.9vw;
   }
   @media ${BREAKPOINTS.mobile} {
-    font-size: 2.56vw;    
+    font-size: 2.56vw;
   }
 `;
 
