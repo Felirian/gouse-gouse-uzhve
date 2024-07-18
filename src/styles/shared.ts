@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {COLORS} from "@/styles/variables";
+
+const InputText = css`
+  font-family: Involve;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 138%; /* 24.84px */
+  text-transform: uppercase;
+`
 
 export const Input = styled.input`
   display: flex;
@@ -13,6 +22,8 @@ export const Input = styled.input`
   
   border: none;
   outline: none;
+
+  ${InputText}
 `
 
 export const TextArea = styled.textarea`
@@ -29,4 +40,6 @@ export const TextArea = styled.textarea`
 
   border: none;
   outline: none;
+
+  ${InputText}
 `
