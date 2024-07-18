@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {H2} from "@/styles/textTags";
 import {COLORS} from "@/styles/variables";
 
 const Index = ({picture}) => {
@@ -14,7 +13,7 @@ const Index = ({picture}) => {
       </ImgWr>
 
       <Desc>
-        <H2>{picture.name}</H2>
+        <h2>{picture.name}</h2>
         <p>{picture.info}</p>
       </Desc>
     </CardWr>

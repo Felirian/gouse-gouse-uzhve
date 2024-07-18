@@ -17,7 +17,8 @@ const Id = () => {
 };
 
 const MainBuy = styled.main`
-  
+  width: 1400px;
+  margin: 0 auto;
   min-height: 100vh;
 `
 
