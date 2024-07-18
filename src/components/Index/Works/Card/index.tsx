@@ -4,11 +4,11 @@ import {H2} from "@/styles/textTags";
 import {COLORS} from "@/styles/variables";
 
 const Index = ({picture}) => {
-  console.log(picture);
+  const imgCount = picture.img.length;
   return (
-    <CardWr>
+    <CardWr imgCount={String(imgCount) }>
       <ImgWr>
-        {picture.img.map((img: object[], index: number) => (
+        {picture.img.map((img: object, index: number) => (
           <Img src={img.src} key={index} />
         ))}
       </ImgWr>
@@ -26,6 +26,7 @@ const CardWr = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr;
   gap: 15px;
+  grid-column: span ${({ imgCount }) => imgCount  }
 `
 
 const ImgWr = styled.div`
@@ -45,7 +46,9 @@ const ImgWr = styled.div`
 const Img = styled.img`
   width: 100%;
   height: 100%;
+  max-height: 100px;
   object-fit: contain;
+  
 `;
 
 const Desc = styled.div`
