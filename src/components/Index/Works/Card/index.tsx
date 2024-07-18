@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 import {COLORS} from "@/styles/variables";
+import Link from "next/link";
+import {ButtonStyle} from "@/styles/shared";
 
-const Index = ({picture}) => {
-  const imgCount = String(picture.img.length) ;
+const Index = ({picture, id}) => {
+  const imgCount = picture.img.length.toString() ;
+
   return (
     <CardWr imgCount={ imgCount }>
       <ImgWr>
@@ -13,9 +16,12 @@ const Index = ({picture}) => {
       </ImgWr>
 
       <Desc>
-        <h2>{picture.name}</h2>
-        <p>{picture.info}</p>
-      </Desc>
+        <Name>{picture.name}</Name>
+        <Description>{picture.info}</Description>
+        <BuyBtn href={`/buy/${id}`}>
+          купить
+        </BuyBtn>
+      </Desc> 
     </CardWr>
   );
 };
@@ -27,7 +33,7 @@ const CardWr = styled.div`
   gap: 15px;
   grid-column: span ${({ imgCount }) => imgCount  };
   
-  max-height: 700px;
+  max-height: 700px;  
 `
 
 const ImgWr = styled.div`  
@@ -61,12 +67,45 @@ const Desc = styled.div`
   
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: flex-start;
   
   width: 100%;
   height: 100%;
 `
 
+const Name = styled.h3`
+  font-family: Involve;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: ${COLORS.MainColor};  
+`
+
+const Description = styled.p`
+  font-family: Involve;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: ${COLORS.littleText};
+  
+  white-space: pre-wrap
+`;
+
+const BuyBtn = styled(Link)`
+  ${ButtonStyle};
+  
+  font-family: Involve;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  
+  
+`
 
 
 export default Index;

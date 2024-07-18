@@ -10,6 +10,27 @@ const InputText = css`
   text-transform: uppercase;
 `
 
+export const ButtonStyle = css`
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 20px;
+
+  display: flex;
+  padding: 8px 44px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 12px;
+  background: ${COLORS.black};
+  transition: 0.2s;
+  &:hover {
+    background: #6F5F58;
+  }
+  &:active {
+    background: #665750;
+  }
+`
+
 export const Input = styled.input`
   display: flex;
   padding: 12px 24px;
@@ -28,12 +49,13 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   display: flex;
-  width: 647px;
+  width: 100%;
   height: 157px;
   padding: 12px 24px;
   align-items: flex-start;
   gap: 439px;
   flex-shrink: 0;
+  resize: none;
 
   border-radius: 16px;
   background: ${COLORS.white};
