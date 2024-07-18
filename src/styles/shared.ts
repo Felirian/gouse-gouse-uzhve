@@ -8,6 +8,8 @@ const InputText = css`
   font-weight: 500;
   line-height: 138%; /* 24.84px */
   text-transform: uppercase;
+  
+  color: ${COLORS.black};
 `
 
 export const ButtonStyle = css`

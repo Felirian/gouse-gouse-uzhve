@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Input, TextArea} from "@/styles/shared";
 import styled, {ThemeProvider} from "styled-components";
-import {BREAKPOINTS} from "@/styles/variables";
-import {FontGellaDisplay} from "@/styles/textTags";
+import {COLORS} from "@/styles/variables";
+import {PictureEntity} from "@/entities/pictures";
 
 const Form = ({picture}) => {
   console.log(picture.name);
@@ -15,6 +15,10 @@ const Form = ({picture}) => {
     comment: ''
   });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -56,7 +60,7 @@ const Form = ({picture}) => {
               id="fullName"
               name="fullName"
               value={formData.fullName}
-              //onChange={handleChange}
+              onChange={handleChange}
               placeholder={'ФИО'}
               required={true}
             />
@@ -65,7 +69,7 @@ const Form = ({picture}) => {
               id="phone"
               name="phone"
               value={formData.phone}
-              //onChange={handleChange}
+              onChange={handleChange}
               placeholder={'+7(999)999-99-99'}
               required={true}
             />
@@ -74,21 +78,26 @@ const Form = ({picture}) => {
               id="email"
               name="email"
               value={formData.email}
-              //onChange={handleChange}
+              onChange={handleChange}
               placeholder={'E-mail'}
               required={true}
             />
+            <PictureName>
+              {picture.name}
+            </PictureName>
             <P>Комментарий к заказу</P>
             <TextArea
               id="comment"
               name="comment"
               value={formData.comment}
-              //onChange={handleChange}
+              onChange={handleChange}
               placeholder={'комментарий к заказу'}
             />
 
           </InputWr>
         </form>
+
+        <img src={picture.img.src}/>
       </ThemeProvider>
     </>
   );
@@ -108,6 +117,24 @@ const P = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+`
+
+const PictureName = styled.div`
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 16px;
+  background-color: ${COLORS.white};
+  font-family: Involve;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 138%; /* 24.84px */
+  text-transform: uppercase;
+
+  color: ${COLORS.black};
 `
 
 const InputWr  = styled.div`
