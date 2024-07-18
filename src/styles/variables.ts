@@ -1,5 +1,6 @@
 export const COLORS = {
   cardBg: '#FAF9F7',
+  white: '#FFFFFF',
   blackOpacity: 'rgba(0, 0, 0, 0.20)',
   black: '#000000',
 };
