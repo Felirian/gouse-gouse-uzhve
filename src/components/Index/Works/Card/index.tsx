@@ -4,9 +4,9 @@ import {H2} from "@/styles/textTags";
 import {COLORS} from "@/styles/variables";
 
 const Index = ({picture}) => {
-  const imgCount = picture.img.length;
+  const imgCount = String(picture.img.length) ;
   return (
-    <CardWr imgCount={String(imgCount) }>
+    <CardWr imgCount={ imgCount }>
       <ImgWr>
         {picture.img.map((img: object, index: number) => (
           <Img src={img.src} key={index} />

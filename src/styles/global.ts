@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { COLORS } from '@/styles/variables';
-import noize from '../assets/noize.png'
+import noize from '../../public/noize.png'
 const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
@@ -19,22 +19,20 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     overflow-x: hidden;
     max-width: 100vw;
-      //background-color: ${COLORS.black};
-    color: ${COLORS.white};
   }
 
   main {
     overflow-x: hidden;
-    background: radial-gradient(
-      200.88% 50.12% at 105.04% 50.01%,
-      rgba(255, 255, 255, 0.70) 0%,
-      rgba(171, 162, 158, 0.70) 47.59%,
-      rgba(111, 95, 88, 0.00) 100%
-    ),
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('/noize.png'),
+    radial-gradient(200.88% 50.12% at 105.04% 50.01%,
+    rgba(255, 255, 255, 0.70) 0%,
+    rgba(171, 162, 158, 0.70) 47.59%,
+    rgba(111, 95, 88, 0.00) 100%),
     radial-gradient(101.19% 118.42% at 2.7% 87.29%,
-      #635246 0%, #735242 100%
-    );
-    background-image: url(${require('../assets/noize.png')});
+    #635246 0%, #735242 100%);
+    background-repeat: repeat;
+    background-blend-mode: multiply;
     max-width: 100vw;
   }
 
@@ -53,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
   h6,
   input,
   textarea {
-    color: ${COLORS.white};
+
   }
 
   button {
