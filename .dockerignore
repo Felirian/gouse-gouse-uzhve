@@ -1,5 +1,5 @@
 .git
 .results
-../gouse-gouse/.idea
+.idea
 scripts
 node_modules
