@@ -105,10 +105,12 @@ const StyledAboutSection = styled.section`
   justify-content: center;
   gap: 80px;
   @media ${BREAKPOINTS.laptop} {
-    padding-top: 5.71vw;
+    padding: 5.71vw 0;
     gap: 5.71vw;
   }
   @media ${BREAKPOINTS.mobile} {
+    padding: 10vw 0;
+    gap: 10vw;
   }
 `;
 

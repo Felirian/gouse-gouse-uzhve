@@ -10,7 +10,7 @@ const InputText = css`
   text-transform: uppercase;
 
   color: ${COLORS.black};
-  
+
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.286vw;
   }
@@ -43,6 +43,7 @@ export const ButtonStyle = css`
     margin-top: 1.429vw;
     padding: 0.571vw 3.143vw;
     border-radius: 0.857vw;
+    padding: 0.57vw 3.14vw;
   }
   @media ${BREAKPOINTS.mobile} {
     margin-top: 6.25vw;

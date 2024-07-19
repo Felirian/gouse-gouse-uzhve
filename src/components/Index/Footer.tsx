@@ -246,14 +246,19 @@ const StyledFooterLogoLink = styled.a`
     height: 3.43vw;
   }
   @media ${BREAKPOINTS.mobile} {
-    margin-bottom: 0;
     &:first-child {
       width: 21.88vw;
       height: 6.88vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     &:nth-child(2) {
       width: 25vw;
-      height: 3.13vw;
+      height: 4.06vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 `;
