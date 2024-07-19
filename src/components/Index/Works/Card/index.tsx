@@ -87,8 +87,8 @@ const Img = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;
-  height: 100%;
-  object-fit: contain;
+  //height: 100%;
+  //object-fit: contain;
   @media ${BREAKPOINTS.mobile} {
     height: ${({ imgCount }) => (imgCount === "1" ? "100%" : "79vw")};
   }
