@@ -2,8 +2,8 @@ version: '3'
 
 services:
   gouse-gouse:
-    image: pushkeen/gouse-gouse:latest
-    container_name: gouse-gouse
+    image: pushkeen/gouse-gouse-uzhve:latest
+    container_name: gouse-gouse-uzhve
     restart: unless-stopped
     ports:
       - 3177:3177

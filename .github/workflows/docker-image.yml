@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: pushkeen/gouse-gouse:latest
+          tags: pushkeen/gouse-gouse-uzhve:latest
