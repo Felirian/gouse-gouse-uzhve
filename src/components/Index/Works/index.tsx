@@ -26,16 +26,17 @@ const WorksWr = styled.section`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 0 80px;
+  padding: 0 80px 80px;
+
   max-width: 1400px;
   margin: 0 auto;
   @media ${BREAKPOINTS.laptop} {
     gap: 2.86vw;
-    padding: 0 5.71vw;
+    padding: 0 5.71vw 5.71vw;
   }
   @media ${BREAKPOINTS.mobile} {
     gap: 7.5vw;
-    padding: 0 6.25vw;
+    padding: 0 6.25vw 6.25vw;
   }
 `;
 
