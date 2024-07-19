@@ -10,6 +10,10 @@ const InputText = css`
   text-transform: uppercase;
 
   color: ${COLORS.black};
+  
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 1.286vw;
+  }
 `;
 
 export const ButtonStyle = css`
@@ -31,6 +35,10 @@ export const ButtonStyle = css`
   &:active {
     background: #665750;
   }
+  @media ${BREAKPOINTS.laptop} {
+    margin-top: 1.429vw;
+    border-radius: 0.857vw;
+  }
 `;
 
 export const Input = styled.input`
@@ -46,7 +54,12 @@ export const Input = styled.input`
   border: none;
   outline: none;
 
-  ${InputText}
+  ${InputText};
+
+  @media ${BREAKPOINTS.laptop} {
+    padding: 0.857vw 1.714vw;
+    border-radius: 1.143vw;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -55,7 +68,6 @@ export const TextArea = styled.textarea`
   height: 157px;
   padding: 12px 24px;
   align-items: flex-start;
-  gap: 439px;
   flex-shrink: 0;
   resize: none;
 
@@ -65,7 +77,12 @@ export const TextArea = styled.textarea`
   border: none;
   outline: none;
 
-  ${InputText}
+  ${InputText};
+
+  @media ${BREAKPOINTS.laptop} {
+    padding: 0.857vw 1.714vw;
+    border-radius: 1.143vw;
+  }
 `;
 
 export const StyledContentWr = styled.div`

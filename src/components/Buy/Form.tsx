@@ -7,7 +7,7 @@ import Sended from "@/components/Buy/Sended";
 
 const Form = ({picture, id}) => {
   console.log(picture.name);
-  const [sended, setSended] = useState(true)
+  const [sended, setSended] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -252,6 +252,7 @@ const InputWr  = styled.div`
   width: 650px;
   flex-shrink: 0;
   @media ${BREAKPOINTS.laptop} {
+    width: 46.429vw;
     gap: 1.429vw;
   }
 `
