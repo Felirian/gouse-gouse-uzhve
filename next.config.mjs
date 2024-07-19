@@ -2,8 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    // Enables the styled-components SWC transform
     styledComponents: true,
+  },
+  images: {
+    unoptimized: true,
+    domains: ["localhost"],
   },
 };
 

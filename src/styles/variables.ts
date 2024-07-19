@@ -1,7 +1,10 @@
 export const COLORS = {
+  MainColor: "#49403C",
+  littleText: "#BEB7A5",
   cardBg: "#FAF9F7",
+  white: "#FFFFFF",
+  blackOpacity: "rgba(0, 0, 0, 0.20)",
   black: "#000000",
-  white: "#ffffff",
 };
 
 const breakpoints = {

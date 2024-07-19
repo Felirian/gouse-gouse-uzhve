@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import { COLORS } from '@/styles/variables';
-import noize from '../assets/noize.png'
+import {Fonts} from "@/styles/textTags";
+import {COLORS} from "@/styles/variables";
+
 const GlobalStyles = createGlobalStyle`
+  ${Fonts};
   * {
     margin: 0;
     padding: 0;
@@ -13,28 +15,28 @@ const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     scroll-padding: 0;
+    
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('/noize.png'),
+    radial-gradient(200.88% 50.12% at 105.04% 50.01%,
+    rgba(255, 255, 255, 0.70) 0%,
+    rgba(171, 162, 158, 0.70) 47.59%,
+    rgba(111, 95, 88, 0.00) 100%),
+    radial-gradient(101.19% 118.42% at 2.7% 87.29%,
+    #635246 0%, #735242 100%);
+    background-repeat: repeat;
+    background-blend-mode: multiply;
   }
 
   body {
     width: 100%;
+    height: 100%;
     overflow-x: hidden;
     max-width: 100vw;
-      //background-color: ${COLORS.black};
-    color: ${COLORS.white};
   }
 
   main {
     overflow-x: hidden;
-    background: radial-gradient(
-      200.88% 50.12% at 105.04% 50.01%,
-      rgba(255, 255, 255, 0.70) 0%,
-      rgba(171, 162, 158, 0.70) 47.59%,
-      rgba(111, 95, 88, 0.00) 100%
-    ),
-    radial-gradient(101.19% 118.42% at 2.7% 87.29%,
-      #635246 0%, #735242 100%
-    );
-    background-image: url(${require('../assets/noize.png')});
     max-width: 100vw;
   }
 
