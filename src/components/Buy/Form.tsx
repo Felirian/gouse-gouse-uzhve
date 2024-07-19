@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {ButtonStyle, Input, TextArea} from "@/styles/shared";
 import styled, {ThemeProvider} from "styled-components";
 import {BREAKPOINTS, COLORS} from "@/styles/variables";
-import * as emailjs from "@emailjs/browser";
 import Sended from "@/components/Buy/Sended";
 
 const Form = ({picture, id}) => {
@@ -141,6 +140,9 @@ const H1 = styled.h1`
   @media ${BREAKPOINTS.laptop} {
     font-size: 4.286vw;
   }
+  @media ${BREAKPOINTS.mobile} {
+    font-size: 13.125vw;
+  }
 `
 
 const P = styled.p`
@@ -151,6 +153,9 @@ const P = styled.p`
   line-height: normal;
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.429vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    font-size: 5vw;
   }
 `
 
@@ -165,6 +170,9 @@ const Caption = styled.p`
   line-height: 115%; /* 13.8px */
   @media ${BREAKPOINTS.laptop} {
     font-size: 0.857vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    font-size: 3.125vw;
   }
 `
 
@@ -190,13 +198,24 @@ const PictureName = styled.div`
     border-radius: 1.143vw;
     font-size: 1.286vw;
   }
+  @media ${BREAKPOINTS.mobile} {
+    padding: 2.5vw 5.625vw;
+    border-radius: 3.75vw;
+    font-size: 5vw;
+  }
 `
 
 const FormWr = styled.form`
   display: flex;
+  
+  @media ${BREAKPOINTS.mobile} {
+    flex-direction: column;
+    gap: 6.25vw;
+  }
 `
 
 const ImgWr = styled.div`
+  
   width: 100%;
   height: 100%;
   gap: 40px;
@@ -205,9 +224,15 @@ const ImgWr = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-left: 40px;
+  
   @media ${BREAKPOINTS.laptop} {
     gap: 2.857vw;
     padding-left: 2.857vw;
+  }
+  
+  @media ${BREAKPOINTS.mobile} {
+    gap: 6.25vw;
+    padding-left: 0;
   }
 `
 
@@ -230,6 +255,11 @@ const Img= styled.img`
   @media ${BREAKPOINTS.laptop} {
     max-height: 21.429vw;
   }
+  @media ${BREAKPOINTS.mobile} {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
 `
 
 const ButtonSubmit = styled.button`
@@ -243,6 +273,11 @@ const ButtonSubmit = styled.button`
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.714vw;
   }
+  @media ${BREAKPOINTS.mobile} {
+    padding: 2.5vw 5.625vw;
+    border-radius: 3.75vw;
+    font-size: 5vw;
+  }
 `
 
 const InputWr  = styled.div`
@@ -254,6 +289,10 @@ const InputWr  = styled.div`
   @media ${BREAKPOINTS.laptop} {
     width: 46.429vw;
     gap: 1.429vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    width: 100%;
+    gap: 3.75vw;
   }
 `
 

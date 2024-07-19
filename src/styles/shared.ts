@@ -14,6 +14,9 @@ const InputText = css`
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.286vw;
   }
+  @media ${BREAKPOINTS.mobile} {    
+    font-size: 5vw;
+  }
 `;
 
 export const ButtonStyle = css`
@@ -28,7 +31,8 @@ export const ButtonStyle = css`
 
   border-radius: 12px;
   background: ${COLORS.black};
-  transition: 0.2s;
+  transition: background 0.2s;
+  
   &:hover {
     background: #6f5f58;
   }
@@ -37,7 +41,13 @@ export const ButtonStyle = css`
   }
   @media ${BREAKPOINTS.laptop} {
     margin-top: 1.429vw;
+    padding: 0.571vw 3.143vw;
     border-radius: 0.857vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    margin-top: 6.25vw;
+    padding: 2.5vw 13.75vw;
+    border-radius: 3.75vw;
   }
 `;
 
@@ -59,6 +69,10 @@ export const Input = styled.input`
   @media ${BREAKPOINTS.laptop} {
     padding: 0.857vw 1.714vw;
     border-radius: 1.143vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    padding: 2.5vw 5.625vw;
+    border-radius: 3.75vw;
   }
 `;
 
@@ -82,6 +96,10 @@ export const TextArea = styled.textarea`
   @media ${BREAKPOINTS.laptop} {
     padding: 0.857vw 1.714vw;
     border-radius: 1.143vw;
+  }
+  @media ${BREAKPOINTS.mobile} {
+    padding: 2.5vw 5.625vw;
+    border-radius: 3.75vw;
   }
 `;
 
