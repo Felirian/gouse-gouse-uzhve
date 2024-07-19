@@ -8,7 +8,6 @@ const Index = () => {
   return (
     <WorksWr id={"works"}>
       <Title>работы</Title>
-
       <PictureGrid>
         {PICTURES_DATA.map((picture: PictureEntity, index) => (
           <Card
