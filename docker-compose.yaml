@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  setkalavka:
+  gouse-gouse:
     image: pushkeen/gouse-gouse:latest
     container_name: gouse-gouse
     restart: unless-stopped
