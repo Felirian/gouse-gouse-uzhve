@@ -6,7 +6,7 @@ WORKDIR /app
 # COPY package.json yarn.lock ./
 COPY package.json package-lock.json ./
 # RUN yarn install --frozen-lockfile
-RUN npm ci
+RUN npm install
 
 # Rebuild the source code only when needed
 FROM node:alpine AS builder
