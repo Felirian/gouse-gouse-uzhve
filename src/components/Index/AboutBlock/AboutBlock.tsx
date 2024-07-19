@@ -2,14 +2,16 @@ import styled from "styled-components";
 import AboutBlockCard from "./AboutBlockCard";
 import Image from "next/image";
 import { aboutImg1, aboutImg2 } from "@/assets/AboutBlock";
-import { H2, P } from "@/styles/textTags";
 import { BREAKPOINTS } from "@/styles/variables";
 
 const AboutBlock = () => {
   return (
     <StyledAboutSection>
       <StyledAboutSectionWr>
-        <AboutBlockCard flexDirection="row">
+        <AboutBlockCard
+          flexDirection="row"
+          id="artist"
+        >
           <StyledAboutBlockCardDesc>
             <StyledAboutBlockH2>о художнике</StyledAboutBlockH2>
             <StyledAboutBlockP>
@@ -47,7 +49,10 @@ const AboutBlock = () => {
             height={478}
           />
         </AboutBlockCard>
-        <AboutBlockCard flexDirection="row-reverse">
+        <AboutBlockCard
+          id="exhibition"
+          flexDirection="row-reverse"
+        >
           <StyledAboutBlockCardDesc>
             <StyledAboutBlockH2>о выставке</StyledAboutBlockH2>
             <StyledAboutBlockP>
@@ -131,20 +136,30 @@ const StyledAboutBlockCardDesc = styled.div`
   }
 `;
 
-const StyledAboutBlockH2 = styled(H2)`
+const StyledAboutBlockH2 = styled.h2`
+  white-space: nowrap;
+  font-family: "Gella Display";
+  font-weight: 500;
+  font-size: 36px;
   text-transform: uppercase;
   margin: 0 80px 40px 80px;
   @media ${BREAKPOINTS.laptop} {
+    font-size: 2.57vw;
     margin: 0 5.71vw 2.86vw 5.71vw;
   }
   @media ${BREAKPOINTS.mobile} {
+    font-size: 6.25vw;
     margin: 0 0 7.5vw 0;
   }
 `;
 
-const StyledAboutBlockP = styled(P)`
+const StyledAboutBlockP = styled.p`
+  font-size: 20px;
+  font-family: Involve;
+  white-space: nowrap;
   margin: 0 80px;
   @media ${BREAKPOINTS.laptop} {
+    font-size: 1.43vw;
     margin: 0 5.71vw;
   }
   @media ${BREAKPOINTS.mobile} {
@@ -152,8 +167,12 @@ const StyledAboutBlockP = styled(P)`
   }
 `;
 
-const StyledMobileAboutBlockP = styled(P)`
+const StyledMobileAboutBlockP = styled.p`
+  font-family: Involve;
+  line-height: normal;
   display: none;
+  white-space: nowrap;
+  font-size: 5vw;
   @media ${BREAKPOINTS.mobile} {
     display: block;
     margin: 0 0 7.5vw 0;

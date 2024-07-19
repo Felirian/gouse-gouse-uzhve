@@ -90,6 +90,9 @@ export const StyledContentWr = styled.div`
   height: 100%;
   max-width: 1400px;
   padding: 0 80px;
+  @media ${BREAKPOINTS.laptop} {
+    padding: 0 5.71vw;
+  }
   @media ${BREAKPOINTS.mobile} {
     padding: 0 6.25vw;
   }
