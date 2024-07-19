@@ -5,6 +5,7 @@ import styled from "styled-components";
 const PreviewBlock = () => {
   return (
     <StyledPreviewSection id="preview">
+      <ImageBg src={'/house.png'} />
       <StyledPreviewContentWr>
         <StyledPreviewH1>НЕВЕСОМОСТИ</StyledPreviewH1>
         <StyledMobilePreviewH1>
@@ -37,6 +38,7 @@ const StyledPreviewSection = styled.section`
   height: 818px;
   display: flex;
   justify-content: center;
+  position: relative;
   @media ${BREAKPOINTS.laptop} {
     height: 58.43vw;
   }
@@ -44,6 +46,13 @@ const StyledPreviewSection = styled.section`
     height: 114.38vw;
   }
 `;
+
+const ImageBg = styled.img`
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+  bottom: 0;
+`
 
 const StyledPreviewContentWr = styled(StyledContentWr)``;
 

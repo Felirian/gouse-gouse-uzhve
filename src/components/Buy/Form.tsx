@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {ButtonStyle, Input, TextArea} from "@/styles/shared";
-import styled, {ThemeProvider} from "styled-components";
+import styled from "styled-components";
 import {BREAKPOINTS, COLORS} from "@/styles/variables";
 import Sended from "@/components/Buy/Sended";
+import emailjs from '@emailjs/browser';
 
 const Form = ({picture, id}) => {
   console.log(picture.name);
@@ -24,22 +25,22 @@ const Form = ({picture, id}) => {
     e.preventDefault();
 
     console.log('e target: ', e.target);
-    // emailjs
-    //   .sendForm(
-    //     "service_enyrjd7",
-    //     "template_kx9lwid",
-    //     e.target,
-    //     'Ub0KtqImJsye3q2h6'
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log('e send: ',e.target);
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log('error: ', error.message, JSON.stringify(error));
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "service_enyrjd7",
+        "template_kx9lwid",
+        e.target,
+        'Ub0KtqImJsye3q2h6'
+      )
+      .then(
+        (result) => {
+          console.log('e send: ',e.target);
+          console.log(result.text);
+        },
+        (error) => {
+          console.log('error: ', error.message, JSON.stringify(error));
+        }
+      );
     e.target.reset();
     setSended(true);
     setTimeout(() => {
