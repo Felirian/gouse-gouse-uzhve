@@ -4,14 +4,15 @@ FROM node:alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install && echo "Dependencies installed"
 
 # Rebuild the source code only when needed
 FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN npm run build
+RUN npm run build && echo "Build completed" || echo "Build failed" && exit 1
+RUN npm install --production --ignore-scripts --prefer-offline && echo "Production dependencies installed"
 
 # Production image, copy all the files and run next
 FROM node:alpine AS runner
@@ -39,3 +40,4 @@ EXPOSE 3177
 ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["npm", "run", "start"]
+
