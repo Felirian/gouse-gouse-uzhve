@@ -11,7 +11,7 @@ const Id = () => {
 
   return (
     <MainBuy>
-      {id && <Form picture={PICTURES_DATA[id]}/>}
+      {id && <Form picture={PICTURES_DATA[id]} id={id}/>}
     </MainBuy>
   );
 };
@@ -20,6 +20,7 @@ const MainBuy = styled.main`
   width: 1400px;
   margin: 0 auto;
   min-height: 100vh;
+  padding: 40px 80px;
 `
 
 const FormWr = styled.form

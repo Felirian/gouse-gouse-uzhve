@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {Input, TextArea} from "@/styles/shared";
+import {ButtonStyle, Input, TextArea} from "@/styles/shared";
 import styled, {ThemeProvider} from "styled-components";
 import {COLORS} from "@/styles/variables";
-import {PictureEntity} from "@/entities/pictures";
+import * as emailjs from "@emailjs/browser";
+import Sended from "@/components/Buy/Sended";
 
-const Form = ({picture}) => {
+const Form = ({picture, id}) => {
   console.log(picture.name);
   const [sended, setSended] = useState(false)
   const [formData, setFormData] = useState({
@@ -50,8 +51,10 @@ const Form = ({picture}) => {
 
   return (
     <>
-      <ThemeProvider theme={{sended: sended}}>
-        <form onSubmit={sendEmail}>
+      { sended ? (
+          <Sended/>
+      ) : (
+        <FormWr onSubmit={sendEmail}>
           <InputWr>
             <H1>Покупка картины</H1>
             <P>Для того, чтобы забронировать или купить картину, заполните форму:</P>
@@ -82,6 +85,15 @@ const Form = ({picture}) => {
               placeholder={'E-mail'}
               required={true}
             />
+            <Input
+              type="text"
+              id="pic"
+              name="images"
+              style={{display: 'none'}}
+              value={`${picture?.name}_${id}`}
+              placeholder={''}
+              required={true}
+            />
             <PictureName>
               {picture.name}
             </PictureName>
@@ -93,12 +105,29 @@ const Form = ({picture}) => {
               onChange={handleChange}
               placeholder={'комментарий к заказу'}
             />
+            <Caption>
+              Нажимая на кнопку «Отправить»,<br/>
+              вы даете согласие на обработку персональных данных <br/>
+              и соглашаетесь с политикой конфиденциальности
+            </Caption>
 
           </InputWr>
-        </form>
 
-        <img src={picture.img.src}/>
-      </ThemeProvider>
+          <Right>
+
+            <ImgWr>
+              {picture.img.map((img, i) => (
+                <Img src={img.src} key={i} />
+              ))}
+            </ImgWr>
+
+            <ButtonSubmit type="submit">
+              отправить
+            </ButtonSubmit>
+
+          </Right>
+        </FormWr>
+      )}
     </>
   );
 };
@@ -119,6 +148,17 @@ const P = styled.p`
   line-height: normal;
 `
 
+const Caption = styled.p`
+  color:  #B2B2B2;
+
+  /* little footer text */
+  font-family: Involve;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+`
+
 const PictureName = styled.div`
   display: flex;
   padding: 12px 24px;
@@ -137,11 +177,56 @@ const PictureName = styled.div`
   color: ${COLORS.black};
 `
 
+const FormWr = styled.form`
+  display: flex;
+`
+
+const ImgWr = styled.div`
+  width: 100%;
+  height: 100%;
+  gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 40px;
+  
+`
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+`
+
+const Img= styled.img`
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  
+  //max-width: 350px;
+  max-height: 300px;
+`
+
+const ButtonSubmit = styled.button`
+  ${ButtonStyle};
+  font-family: Involve;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 138%; /* 33.12px */
+  text-transform: uppercase;
+`
+
 const InputWr  = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 45%;
+  width: 650px;
+  flex-shrink: 0;
 `
 
 export default Form;
