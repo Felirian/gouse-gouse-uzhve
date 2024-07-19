@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components";
-import {COLORS} from "@/styles/variables";
+import styled, { css } from "styled-components";
+import { BREAKPOINTS, COLORS } from "@/styles/variables";
 
 const InputText = css`
   font-family: Involve;
@@ -8,9 +8,9 @@ const InputText = css`
   font-weight: 500;
   line-height: 138%; /* 24.84px */
   text-transform: uppercase;
-  
+
   color: ${COLORS.black};
-`
+`;
 
 export const ButtonStyle = css`
   width: fit-content;
@@ -26,12 +26,12 @@ export const ButtonStyle = css`
   background: ${COLORS.black};
   transition: 0.2s;
   &:hover {
-    background: #6F5F58;
+    background: #6f5f58;
   }
   &:active {
     background: #665750;
   }
-`
+`;
 
 export const Input = styled.input`
   display: flex;
@@ -42,12 +42,12 @@ export const Input = styled.input`
 
   border-radius: 16px;
   background: ${COLORS.white};
-  
+
   border: none;
   outline: none;
 
   ${InputText}
-`
+`;
 
 export const TextArea = styled.textarea`
   display: flex;
@@ -66,4 +66,14 @@ export const TextArea = styled.textarea`
   outline: none;
 
   ${InputText}
-`
+`;
+
+export const StyledContentWr = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  padding: 0 80px;
+  @media ${BREAKPOINTS.mobile} {
+    padding: 0 6.25vw;
+  }
+`;
