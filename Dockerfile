@@ -1,31 +1,34 @@
-# Install dependencies only when needed
+# Stage 1: Install dependencies
 FROM node:alpine AS deps
-
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
-# COPY package.json yarn.lock ./
+
+# Install dependencies
 COPY package.json package-lock.json ./
-# RUN yarn install --frozen-lockfile
 RUN npm install
 
-# Rebuild the source code only when needed
+# Stage 2: Build the application
 FROM node:alpine AS builder
 WORKDIR /app
-COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-# RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
-RUN npm run build && npm install --production --ignore-scripts --prefer-offline
 
-# Production image, copy all the files and run next
+# Copy application source code
+COPY . .
+
+# Copy dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+
+# Build the application
+RUN npm run build
+
+# Stage 3: Setup production environment
 FROM node:alpine AS runner
 WORKDIR /app
 
-ENV NODE_ENV=production
+ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# You only need to copy next.config.js if you are NOT using the default configuration
+# Copy necessary files from builder stage
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
@@ -37,5 +40,6 @@ USER nextjs
 EXPOSE 3177
 
 CMD ["npm", "start"]
+
 
 
