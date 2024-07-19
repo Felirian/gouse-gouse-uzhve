@@ -108,6 +108,7 @@ const StyledHeader = styled.header`
   height: 60px;
   display: flex;
   justify-content: center;
+  z-index: 99;
   @media ${BREAKPOINTS.laptop} {
     height: 4.29vw;
   }
@@ -118,6 +119,7 @@ const StyledHeader = styled.header`
 
 const StyledMobileHeader = styled.header`
   display: none;
+  z-index: 99;
   @media ${BREAKPOINTS.mobile} {
     display: block;
     min-height: 13.13vw;

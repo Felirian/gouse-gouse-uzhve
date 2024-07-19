@@ -39,6 +39,7 @@ const StyledPreviewSection = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
+  z-index: -1;
   @media ${BREAKPOINTS.laptop} {
     height: 58.43vw;
   }
