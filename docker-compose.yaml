@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  setkalavka:
+    image: pushkeen/gouse-gouse:latest
+    container_name: gouse-gouse
+    restart: unless-stopped
+    ports:
+      - 3177:3177
