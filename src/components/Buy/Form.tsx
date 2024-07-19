@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {ButtonStyle, Input, TextArea} from "@/styles/shared";
 import styled, {ThemeProvider} from "styled-components";
-import {COLORS} from "@/styles/variables";
+import {BREAKPOINTS, COLORS} from "@/styles/variables";
 import * as emailjs from "@emailjs/browser";
 import Sended from "@/components/Buy/Sended";
 
 const Form = ({picture, id}) => {
   console.log(picture.name);
-  const [sended, setSended] = useState(false)
+  const [sended, setSended] = useState(true)
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -138,6 +138,9 @@ const H1 = styled.h1`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 4.286vw;
+  }
 `
 
 const P = styled.p`
@@ -146,6 +149,9 @@ const P = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 1.429vw;
+  }
 `
 
 const Caption = styled.p`
@@ -157,6 +163,9 @@ const Caption = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 115%; /* 13.8px */
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 0.857vw;
+  }
 `
 
 const PictureName = styled.div`
@@ -175,6 +184,12 @@ const PictureName = styled.div`
   text-transform: uppercase;
 
   color: ${COLORS.black};
+  
+  @media ${BREAKPOINTS.laptop} {
+    padding: 0.857vw 1vw;
+    border-radius: 1.143vw;
+    font-size: 1.286vw;
+  }
 `
 
 const FormWr = styled.form`
@@ -190,7 +205,10 @@ const ImgWr = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-left: 40px;
-  
+  @media ${BREAKPOINTS.laptop} {
+    gap: 2.857vw;
+    padding-left: 2.857vw;
+  }
 `
 
 const Right = styled.div`
@@ -209,6 +227,9 @@ const Img= styled.img`
   
   //max-width: 350px;
   max-height: 300px;
+  @media ${BREAKPOINTS.laptop} {
+    max-height: 21.429vw;
+  }
 `
 
 const ButtonSubmit = styled.button`
@@ -219,6 +240,9 @@ const ButtonSubmit = styled.button`
   font-weight: 500;
   line-height: 138%; /* 33.12px */
   text-transform: uppercase;
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 1.714vw;
+  }
 `
 
 const InputWr  = styled.div`
@@ -227,6 +251,9 @@ const InputWr  = styled.div`
   gap: 20px;
   width: 650px;
   flex-shrink: 0;
+  @media ${BREAKPOINTS.laptop} {
+    gap: 1.429vw;
+  }
 `
 
 export default Form;

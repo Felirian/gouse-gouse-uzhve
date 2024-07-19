@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Index = () => {
   return (
-    <WorksWr>
+    <WorksWr id={'works'}>
       <Title>работы</Title>
 
       <PictureGrid>
