@@ -11,7 +11,9 @@ const Index = ({picture, id}) => {
     <CardWr imgCount={ imgCount }>
       <ImgWr>
         {picture.img.map((img: object, index: number) => (
-          <Img src={img.src} key={index} />
+          <ImgCon key={index}>
+            <Img src={img.src} />
+          </ImgCon>
         ))}
       </ImgWr>
 
@@ -52,10 +54,17 @@ const ImgWr = styled.div`
   border-radius: 16px;
 `;
 
+const ImgCon = styled.div`
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  height: fit-content;
+`
+
 const Img = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: contain;  
+  height: auto;
+  object-fit: contain;
 `;
 
 const Desc = styled.div`
