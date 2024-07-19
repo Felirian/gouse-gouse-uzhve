@@ -2,22 +2,30 @@ import { StyledContentWr } from "@/styles/shared";
 import React, { useState } from "react";
 import styled from "styled-components";
 import SvgSelector from "../shared/SvgSelector";
-import { HEADER_LINKS } from "@/lib/constants";
+import { NAV_LINKS } from "@/styles/variables";
 import { BREAKPOINTS, COLORS } from "@/styles/variables";
+import gooseLogo from "@/assets/gooseLogo.png";
+import Image from "next/image";
 
 const Header = () => {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false);
-  console.log(burgerIsOpen);
 
   return (
     <>
       <StyledHeader>
         <StyledHeaderContentWr>
-          <StyledLogoLink href="#">
-            <SvgSelector name="GooseLogo" />
+          <StyledLogoLink
+            href="https://goosegoose.ru/"
+            target="_blank"
+          >
+            {/* <SvgSelector name="GooseLogo" /> */}
+            <Image
+              src={gooseLogo}
+              alt="Логотип Goose Goose"
+            />
           </StyledLogoLink>
           <StyledHeaderLinks burgerisopen={burgerIsOpen ? "true" : "false"}>
-            {HEADER_LINKS.map((link, i) => {
+            {NAV_LINKS.map((link, i) => {
               return (
                 <StyledHeaderLink
                   key={`nav_link_${i}`}
@@ -32,12 +40,23 @@ const Header = () => {
       </StyledHeader>
 
       <StyledMobileHeader>
+        {burgerIsOpen && (
+          <StyledBackdrop
+            onClick={() => setBurgerIsOpen(false)}
+            onTouchStart={() => setBurgerIsOpen(false)}
+          />
+        )}
+
         <StyledMobileHeaderContentWr burgerisopen={burgerIsOpen ? "true" : "false"}>
           <StyledLogoLink
-            href="#"
+            href="#preview"
             burgerisopen={burgerIsOpen ? "true" : "false"}
           >
-            <SvgSelector name="GooseLogo" />
+            <Image
+              src={gooseLogo}
+              alt="Логотип Goose Goose"
+            />
+            {/* <SvgSelector name="GooseLogo" /> */}
           </StyledLogoLink>
           <StyledBurgerBtn
             onClick={() => setBurgerIsOpen((state) => !state)}
@@ -47,11 +66,12 @@ const Header = () => {
           </StyledBurgerBtn>
 
           <StyledHeaderLinks burgerisopen={burgerIsOpen ? "true" : "false"}>
-            {HEADER_LINKS.map((link, i) => {
+            {NAV_LINKS.map((link, i) => {
               return (
                 <StyledHeaderLink
                   key={`nav_mobile_link_${i}`}
                   href={link.address}
+                  onClick={() => setBurgerIsOpen(false)}
                   style={{
                     transition: "0.8s",
                     transform: `translateY(${burgerIsOpen ? 0 : -200}px)`,
@@ -72,7 +92,18 @@ const Header = () => {
 
 export default Header;
 
+const StyledBackdrop = styled.div`
+  position: fixed;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+`;
+
 const StyledHeader = styled.header`
+  /* position: fixed; */
+  font-family: Involve;
   width: 100%;
   height: 60px;
   display: flex;
@@ -89,7 +120,6 @@ const StyledMobileHeader = styled.header`
   display: none;
   @media ${BREAKPOINTS.mobile} {
     display: block;
-
     min-height: 13.13vw;
   }
 `;
@@ -103,6 +133,10 @@ const StyledHeaderContentWr = styled(StyledContentWr)`
 const StyledLogoLink = styled.a<{ burgerisopen?: string }>`
   width: 123px;
   height: 41px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
   svg {
     width: 100%;
     height: 100%;
@@ -122,6 +156,13 @@ const StyledLogoLink = styled.a<{ burgerisopen?: string }>`
     width: 23.13vw;
     height: 7.5vw;
     z-index: 10;
+    img {
+      transition: 1s;
+      width: 100%;
+      height: 100%;
+      -webkit-filter: ${(props) => (props.burgerisopen === "true" ? "invert(100%)" : "none")}; /* Safari/Chrome */
+      filter: ${(props) => (props.burgerisopen === "true" ? "invert(100%)" : "none")};
+    }
     svg {
       transition: 2s;
       * {
@@ -163,16 +204,25 @@ const StyledHeaderLinks = styled.nav<{ burgerisopen: string }>`
 `;
 
 const StyledHeaderLink = styled.a`
+  font-family: Involve;
+  color: ${COLORS.white};
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
   font-weight: 400;
-  color: black;
+  transition: 0.2s;
+  &:hover {
+    color: ${COLORS.littleText};
+  }
+  &:active {
+    color: ${COLORS.textActive};
+  }
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.43vw;
   }
   @media ${BREAKPOINTS.mobile} {
+    color: ${COLORS.black};
     height: 13.13vw;
     font-size: 5vw;
     justify-content: start;

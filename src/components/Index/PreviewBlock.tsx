@@ -1,11 +1,10 @@
 import { StyledContentWr } from "@/styles/shared";
-import { H1, H2, P } from "@/styles/textTags";
 import { BREAKPOINTS } from "@/styles/variables";
 import styled from "styled-components";
 
 const PreviewBlock = () => {
   return (
-    <StyledPreviewSection>
+    <StyledPreviewSection id="preview">
       <StyledPreviewContentWr>
         <StyledPreviewH1>НЕВЕСОМОСТИ</StyledPreviewH1>
         <StyledMobilePreviewH1>
@@ -48,24 +47,28 @@ const StyledPreviewSection = styled.section`
 
 const StyledPreviewContentWr = styled(StyledContentWr)``;
 
-const StyledPreviewH1 = styled(H1)`
-  margin: 80px 0 30px;
+const StyledPreviewH1 = styled.h1`
+  font-family: "Gella Display";
+  margin: 80px 0 0;
   font-size: 126px;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   @media ${BREAKPOINTS.laptop} {
     font-size: 9vw;
-    margin: 5.71vw 0 2.14vw;
+    margin: 5.71vw 0 0;
   }
   @media ${BREAKPOINTS.mobile} {
     display: none;
   }
 `;
 
-const StyledMobilePreviewH1 = styled(H1)`
+const StyledMobilePreviewH1 = styled.h1`
+  font-family: "Gella Display";
+  font-weight: 500;
+  line-height: 118%;
   display: none;
-  margin: 5.63vw 0 3.75vw;
+  margin: 5.63vw 0 0;
   font-size: 15vw;
   text-transform: uppercase;
   @media ${BREAKPOINTS.mobile} {
@@ -73,7 +76,8 @@ const StyledMobilePreviewH1 = styled(H1)`
   }
 `;
 
-const StyledPreviewH2 = styled(H2)`
+const StyledPreviewH2 = styled.h2`
+  font-family: Involve;
   text-transform: uppercase;
   font-size: 42px;
   font-weight: 500;
@@ -83,16 +87,18 @@ const StyledPreviewH2 = styled(H2)`
   }
   @media ${BREAKPOINTS.laptop} {
     font-size: 3vw;
+    margin-bottom: 0.71vw;
   }
   @media ${BREAKPOINTS.mobile} {
     display: none;
   }
 `;
-const StyledMobilePreviewH2 = styled(H2)`
+const StyledMobilePreviewH2 = styled.h2`
   display: none;
+  font-family: Involve;
   text-transform: uppercase;
   font-size: 7.5vw;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 3.75vw;
   span {
     font-weight: 600;
@@ -102,7 +108,8 @@ const StyledMobilePreviewH2 = styled(H2)`
   }
 `;
 
-const StyledPreviewP = styled(P)`
+const StyledPreviewP = styled.p`
+  font-family: Involve;
   font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;

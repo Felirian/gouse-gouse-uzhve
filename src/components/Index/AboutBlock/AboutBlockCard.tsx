@@ -4,10 +4,18 @@ import styled from "styled-components";
 
 interface AboutBlockCardProps extends PropsWithChildren {
   flexDirection: "column" | "row" | "row-reverse" | "column-reverse";
+  id: string;
 }
 
-const AboutBlockCard = ({ flexDirection, children }: AboutBlockCardProps) => {
-  return <StyledAboutCard style={{ flexDirection: flexDirection }}>{children}</StyledAboutCard>;
+const AboutBlockCard = ({ flexDirection, id, children }: AboutBlockCardProps) => {
+  return (
+    <StyledAboutCard
+      id={id}
+      style={{ flexDirection: flexDirection }}
+    >
+      {children}
+    </StyledAboutCard>
+  );
 };
 
 export default AboutBlockCard;

@@ -5,6 +5,7 @@ export const COLORS = {
   white: "#FFFFFF",
   blackOpacity: "rgba(0, 0, 0, 0.20)",
   black: "#000000",
+  textActive: "#ABA189",
 };
 
 const breakpoints = {
@@ -21,4 +22,15 @@ export const SOCIAL_LINKS = [
   { icon: "TgLogo", href: "" },
   { icon: "VkLogo", href: "" },
   { icon: "InstLogo", href: "" },
+];
+
+export const NAV_LINKS = [
+  { name: "о художнике", address: "#artist" },
+  { name: "о выставке", address: "#exhibition" },
+  { name: "работы", address: "#works" },
+];
+
+export const CONTACTS_LINKS = [
+  { name: "goosegoose.ru", address: "https://goosegoose.ru/" },
+  { name: "vk.com/goosegoose", address: "https://vk.com/goosegoose" },
 ];
