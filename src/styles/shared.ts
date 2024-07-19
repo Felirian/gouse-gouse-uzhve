@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { COLORS } from "@/styles/variables";
+import { BREAKPOINTS, COLORS } from "@/styles/variables";
 
 const InputText = css`
   font-family: Involve;
@@ -67,8 +67,6 @@ export const TextArea = styled.textarea`
 
   ${InputText}
 `;
-import { BREAKPOINTS } from "@/styles/variables";
-import styled from "styled-components";
 
 export const StyledContentWr = styled.div`
   width: 100%;

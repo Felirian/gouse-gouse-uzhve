@@ -48,11 +48,12 @@ export const PStyle = css`
   @media ${BREAKPOINTS.laptop} {
     font-size: 1.25vw;
     letter-spacing: -0.03vw;
-import { css } from "styled-components";
+  }
+`;
 
 export const Fonts = css`
   @font-face {
-    font-family: 'Gella Display';
+    font-family: "Gella Display";
     src: url("/fonts/GellaDisplay-ExpandedMedium.otf");
   }
   @media ${BREAKPOINTS.mobile} {
@@ -101,7 +102,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   ${H1Style}
   @font-face {
-    font-family: 'Involve';
+    font-family: "Involve";
     src: url("/fonts/Involve-VF.ttf");
   }
 `;
@@ -117,4 +118,3 @@ export const H4 = styled.h4`
 export const P = styled.p`
   ${PStyle}
 `;
-
