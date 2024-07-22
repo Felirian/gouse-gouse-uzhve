@@ -1,56 +1,45 @@
-# Stage 1: Install dependencies
+# Install dependencies only when needed
 FROM node:alpine AS deps
-WORKDIR /app
-
-# Установим необходимые пакеты для сборки
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
-
-# Скопируем package.json и package-lock.json для установки зависимостей
+WORKDIR /app
+# COPY package.json yarn.lock ./
 COPY package.json package-lock.json ./
+# RUN yarn install --frozen-lockfile
+RUN npm i
 
-# Установим зависимости
-RUN npm install
-
-# Stage 2: Build the application
+# Rebuild the source code only when needed
 FROM node:alpine AS builder
 WORKDIR /app
-
-# Скопируем исходный код
 COPY . .
-
-# Скопируем node_modules из deps stage
 COPY --from=deps /app/node_modules ./node_modules
+# RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
+RUN npm run build && npm install --production --ignore-scripts --prefer-offline
 
-# Выполним команду сборки
-RUN npm run build
-
-# Stage 3: Setup production environment
+# Production image, copy all the files and run next
 FROM node:alpine AS runner
 WORKDIR /app
 
-# Установим переменную окружения для production
 ENV NODE_ENV production
 
-# Добавим группу и пользователя
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# Скопируем необходимые файлы из builder stage
-COPY --from=builder /app/next.config.js ./
+# You only need to copy next.config.js if you are NOT using the default configuration
+COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-# Установим пользователя nextjs
 USER nextjs
 
-# Откроем порт 3177
-EXPOSE 3177
+EXPOSE 3000
 
-# Команда для запуска приложения
-CMD ["npm", "start"]
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry.
+ENV NEXT_TELEMETRY_DISABLED 1
 
-
-
-
+# CMD ["yarn", "start"]
+CMD ["npm", "run", "start"]
